@@ -1,0 +1,23 @@
+
+.App {
+  background-color: #242424;
+  color: #fcfffb;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -ms-overflow-style: none;
+  transition: all 1s ease-in-out;
+}
+
+body {
+    font-family:
+        Inter,
+        "M PLUS 1p",
+        "M PLUS Rounded 1c",
+        "Noto Sans JP",
+        -apple-system;
+    user-select: none;
+}
+
+a:hover{
+  color: #df929b;
+}
