@@ -1,4 +1,5 @@
 import SignOut from "../components/SignOut";
+import ShowImage from "../components/ShowImage";
 import { Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import liff from "@line/liff";
@@ -40,6 +41,7 @@ function Home() {
             <Typography component="h1" variant="h5">
                 Home
             </Typography>
+            <ShowImage />
             <SignOut />
         </div>
     );
