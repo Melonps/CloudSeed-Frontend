@@ -1,5 +1,6 @@
 import SignOut from "../components/SignOut";
 import ShowImage from "../components/ShowImage";
+import InputCloudKeyword from "../components/InputCloudKeyword";
 import { Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import liff from "@line/liff";
@@ -8,6 +9,7 @@ import "../App.css";
 function Home() {
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
+    const [words, setWords] = useState([]);
 
     useEffect(() => {
         liff.init({
@@ -41,7 +43,8 @@ function Home() {
             <Typography component="h1" variant="h5">
                 Home
             </Typography>
-            <ShowImage />
+            <InputCloudKeyword words={words} setWords={setWords} />
+            <ShowImage words={words} />
             <SignOut />
         </div>
     );

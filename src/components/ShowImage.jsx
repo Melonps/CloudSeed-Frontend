@@ -1,17 +1,27 @@
 import { useEffect, useState } from "react";
 import axios from 'axios'
+import { Typography, Button } from "@mui/material";
 
-const ShowImage = () => {
-    const [dogUrl, setDogUrl] = useState('https://images.dog.ceo/breeds/spaniel-brittany/n02101388_6057.jpg')
+const ShowImage = ({ words }) => {
+    const [image, setImage] = useState(null)
+    const [imageCreated, setImageCreated] = useState(false)
+
+    const postData = {
+        "kw_list": words,
+    }
 
     const fetchNewImage = async () => {
         try {
-            const response = await axios.get('https://dog.ceo/api/breeds/image/random');
-            if (response.data.status === 'success') {
-                setDogUrl(response.data.message);
-            } else {
-                console.error('Failed to fetch dog image');
-            }
+            const response = await axios.post('https://cymntn2bea.execute-api.ap-northeast-3.amazonaws.com/dev/word-cloud', postData)
+                .then(response => response.blob())
+                .then(blob => {
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                        setImage(reader.result)
+                    }
+                    reader.readAsDataURL(blob)
+                    setImageCreated(true)
+                })
         } catch (error) {
             console.error(error);
         }
@@ -19,8 +29,21 @@ const ShowImage = () => {
 
     return (
         <div className="image">
-            <img src={dogUrl} className="image" alt="画像" />
-            <button onClick={fetchNewImage} className="reload_button">【別の画像を表示】</button>
+            {imageCreated? (
+                <img src={image} className="image" alt="画像" />
+            ) :(
+                <></>
+            )}
+            <Button
+                className="create_image_button"
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 4 }}
+                onClick={fetchNewImage}
+            >
+                ワードクラウドを作成
+            </Button>
         </div>
     )
 }

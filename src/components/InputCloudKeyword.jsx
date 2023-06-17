@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { TextField, Button, Typography } from "@mui/material";
 
-const InputCloudKeyword = () => {
-    const [words, setWords] = useState([]);
+const InputCloudKeyword = ({ words, setWords }) => {
     const [inputWord, setInputWord] = useState("");
 
     const addWord = () => {
