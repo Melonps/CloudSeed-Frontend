@@ -43,11 +43,11 @@ const App = () => {
 
     return (
         <div className="App flex min-h-screen text-center flex-col items-center justify-center p-24">
-            {/* テーマプロバイダーでアプリケーション全体のテーマを設定 */}
+            {/* アプリケーション全体のテーマを設定するためにThemeProviderを使用 */}
             <ThemeProvider theme={theme}>
                 <CssBaseline />
                 <div className="">
-                    {/* BrowserRouterを使用してルーティングを設定 */}
+                    {/* ルーティングを設定するためにBrowserRouterを使用 */}
                     <BrowserRouter>
                         <Routes>
                             {/* ルートパスに対するルート要素としてSignInPageコンポーネントを設定 */}

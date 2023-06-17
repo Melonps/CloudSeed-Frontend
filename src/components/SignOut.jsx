@@ -4,14 +4,15 @@ import { auth } from "../firebase/firebase";
 import Button from "@mui/material/Button";
 
 const SignOut = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); // useNavigateフックを使用してnavigate関数を取得
     const handleClickSignOut = async () => {
+        // ログアウトボタンのクリックハンドラ
         try {
-            await signOut(auth);
-            console.log("[Succeeded] Sign out");
-            navigate("/");
+            await signOut(auth); // authオブジェクトを使用してログアウトを試行
+            console.log("[Succeeded] Sign out"); // ログアウト成功時にメッセージをコンソールに出力
+            navigate("/"); // ログアウト後にルートページに遷移
         } catch (error) {
-            console.error(error);
+            console.error(error); // エラーが発生した場合にエラーメッセージをコンソールに出力
         }
     };
 
@@ -21,7 +22,7 @@ const SignOut = () => {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
-            onClick={handleClickSignOut}
+            onClick={handleClickSignOut} // ログアウトボタンがクリックされたときにhandleClickSignOut関数を実行
         >
             ログアウト
         </Button>

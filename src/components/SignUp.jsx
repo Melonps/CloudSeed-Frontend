@@ -10,11 +10,11 @@ import MuiAlert from "@mui/material/Alert";
 
 const SignUp = () => {
     // ステートの定義
-    const [signUpEmail, setSignUpEmail] = useState("");
-    const [signUpPassword, setSignUpPassword] = useState("");
-    const [user, setUser] = useState(null);
-    const [hasError, setHasError] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("");
+    const [signUpEmail, setSignUpEmail] = useState(""); // ユーザーの登録メールアドレスを管理するステート
+    const [signUpPassword, setSignUpPassword] = useState(""); // ユーザーの登録パスワードを管理するステート
+    const [user, setUser] = useState(null); // 現在のユーザーを管理するステート
+    const [hasError, setHasError] = useState(false); // エラーの有無を管理するステート
+    const [errorMessage, setErrorMessage] = useState(""); // エラーメッセージを管理するステート
 
     // ユーザー登録処理
     const handleSignUp = async (event) => {
@@ -29,14 +29,14 @@ const SignUp = () => {
             console.log("[Succeeded] Sign up");
         } catch (error) {
             console.error(error);
-            setErrorMessage(error.message);
-            setHasError(true);
+            setErrorMessage(error.message); // エラーメッセージを設定
+            setHasError(true); // エラーフラグを設定
         }
     };
 
     // スナックバーを閉じる処理
     const handleSnackbarClose = () => {
-        setHasError(false);
+        setHasError(false); // エラーフラグをリセット
     };
 
     // コンポーネントのマウント時に実行される処理

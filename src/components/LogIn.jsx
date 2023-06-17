@@ -6,47 +6,41 @@ import { TextField, Button, Box, Typography, Alert } from "@mui/material";
 
 // LogInコンポーネントの定義
 const LogIn = () => {
-    // ステートの定義
-    const [signInEmail, setSignInEmail] = useState("");
-    const [signInPassword, setSignInPassword] = useState("");
-    const [error, setError] = useState(null);
-    const [user, setUser] = useState(null);
+    const [signInEmail, setSignInEmail] = useState(""); // signInEmailとsetSignInEmailをuseStateフックで定義
+    const [signInPassword, setSignInPassword] = useState(""); // signInPasswordとsetSignInPasswordをuseStateフックで定義
+    const [error, setError] = useState(null); // errorとsetErrorをuseStateフックで定義
+    const [user, setUser] = useState(null); // userとsetUserをuseStateフックで定義
 
-    // ログインフォームの送信処理
     const handleSubmit = async (event) => {
+        // ログインフォームの送信処理
         event.preventDefault();
         try {
-            // signInWithEmailAndPassword関数を使用してユーザーをログイン
-            await signInWithEmailAndPassword(auth, signInEmail, signInPassword);
-            console.log("[Succeeded] Sign in");
+            await signInWithEmailAndPassword(auth, signInEmail, signInPassword); // signInWithEmailAndPassword関数を使用してユーザーをログイン
+            console.log("[Succeeded] Sign in"); // ログイン成功時にメッセージをコンソールに出力
         } catch (error) {
             setError(
                 "ログインに失敗しました。正しいメールアドレスとパスワードを入力してください。"
-            );
+            ); // エラーメッセージを設定
             setError(null);
-            console.error(error);
+            console.error(error); // エラーが発生した場合にエラーメッセージをコンソールに出力
         }
     };
 
-    // コンポーネントのマウント時に実行される処理
     useEffect(() => {
-        // onAuthStateChanged関数を使用して認証の状態が変化したときにイベントを購読
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            // 認証の状態が変化したときにユーザーステートを更新
-            setUser(currentUser);
+            // コンポーネントのマウント時に実行される処理
+            setUser(currentUser); // onAuthStateChanged関数を使用して認証の状態が変化したときにイベントを購読し、ユーザーステートを更新
         });
 
-        // クリーンアップ関数としてunsubscribeを返すことでイベントリスナーの解除を行う
         return () => {
-            unsubscribe();
+            unsubscribe(); // クリーンアップ関数としてunsubscribeを返すことでイベントリスナーの解除を行う
         };
     }, []);
 
     return (
         <>
             {user ? (
-                // ユーザーがログインしている場合、Navigateコンポーネントを使用して指定のURLにリダイレクト
-                <Navigate to="/home" replace />
+                <Navigate to="/home" replace /> // ユーザーがログインしている場合、Navigateコンポーネントを使用して指定のURLにリダイレクト
             ) : (
                 <>
                     <Typography component="h1" variant="h5">
@@ -94,7 +88,6 @@ const LogIn = () => {
                             Log In
                         </Button>
                     </Box>
-                    {/* エラーメッセージがある場合は表示 */}
                     {error && (
                         <Alert severity="error" sx={{ mt: 2 }}>
                             {error}
@@ -109,5 +102,4 @@ const LogIn = () => {
     );
 };
 
-// LogInコンポーネントをエクスポート
 export default LogIn;
