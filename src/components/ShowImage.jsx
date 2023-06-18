@@ -46,7 +46,7 @@ const ShowImage = ({ words }) => {
                 sx={{ mt: 3, mb: 4 }}
                 onClick={fetchNewImage}
             >
-                ワードクラウドを作成
+                Generate Word Cloud
             </Button>
             {isLoading && <Loading />}
             {imageCreated && (
