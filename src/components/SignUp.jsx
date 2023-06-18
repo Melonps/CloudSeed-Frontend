@@ -60,7 +60,7 @@ const SignUp = () => {
                 <Navigate to={`/`} />
             ) : (
                 <>
-                    <Typography component="h1" variant="h5">
+                    <Typography component="h1" variant="h3">
                         Sign Up
                     </Typography>
                     <Box
