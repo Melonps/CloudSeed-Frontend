@@ -3,7 +3,7 @@
 
 ★を付けてあげてください！
 
-## CloudSeed-Backendの使い方
+## CloudSeed-Frontendの使い方
 本プロジェクトはローカルでの実行を想定しております。Zappaやawsがどーのこーの描いてありますが、デプロイは成功していないのでご注意ください。
 
 下に実行手順を示します。あ、様々な.envファイルが必要です。今回必要になったのは下のようになりました。プロジェクト直下に作ってください。必要なものは、Firebaseのキーですね。調べたら出てきます。
@@ -17,7 +17,7 @@ VITE_FIREBASE_API_MESSAGE_SENDER_ID=""
 VITE_FIREBASE_APP_ID=""
 
 ```
-プロジェクトを立ち上げるディレクトリに移動してください。必ず、[CloudSeed-Backend](https://github.com/sgmtg/CloudSeed-Backend/tree/master)、とは別のプロジェクトディレクトリで、実行してください。
+プロジェクトを立ち上げるディレクトリに移動してください。必ず、[CloudSeed-Backend](https://github.com/sgmtg/CloudSeed-Backend.git)、とは別のプロジェクトディレクトリで、実行してください。
 
 また、以下はローカルにNodeがインストールされている状況を想定しています。npm派です。
 
@@ -46,7 +46,7 @@ npm start
 # Backendの立ち上げ
 また、以下はローカルにPython3がインストールされている状況を想定しています。Docker派ですが、venvを使います。
 
-[CloudSeed-Backend](https://github.com/Melonps/CloudSeed-Frontend.git)にアクセスし、本プロジェクトは別のプロジェクトディレクトリで、
+[CloudSeed-Backend](https://github.com/sgmtg/CloudSeed-Backend.git)にアクセスし、本プロジェクトは別のプロジェクトディレクトリで、
 
 ```shell
 git clone https://github.com/sgmtg/CloudSeed-Backend.git
