@@ -102,7 +102,7 @@ const SignUp = () => {
                             variant="contained"
                             sx={{ mt: 3, mb: 4, mx: "auto" }}
                         >
-                            Sign In
+                            Sign Up
                         </Button>
                     </Box>
                     <Typography variant="body2" sx={{ mt: 2 }}>
