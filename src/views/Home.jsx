@@ -1,6 +1,7 @@
 import SignOut from "../components/SignOut";
 import ShowImage from "../components/ShowImage";
 import InputCloudKeyword from "../components/InputCloudKeyword";
+import AddComment from "../components/AddComment";
 import { Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import liff from "@line/liff";
@@ -45,6 +46,7 @@ function Home() {
             </Typography>
             <InputCloudKeyword words={words} setWords={setWords} />
             <ShowImage words={words} />
+            <AddComment />
             <SignOut />
         </div>
     );
