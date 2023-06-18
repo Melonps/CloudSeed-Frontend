@@ -43,7 +43,7 @@ const LogIn = () => {
                 <Navigate to="/home" replace /> // ユーザーがログインしている場合、Navigateコンポーネントを使用して指定のURLにリダイレクト
             ) : (
                 <>
-                    <Typography component="h1" variant="h5">
+                    <Typography component="h1" variant="h3">
                         Sign In
                     </Typography>
 
