@@ -42,7 +42,7 @@ const App = () => {
     );
 
     return (
-        <div className="App flex min-h-screen text-center flex-col items-center justify-center p-24">
+        <div className="App flex min-h-screen text-center flex-col items-center justify-center">
             {/* アプリケーション全体のテーマを設定するためにThemeProviderを使用 */}
             <ThemeProvider theme={theme}>
                 <CssBaseline />

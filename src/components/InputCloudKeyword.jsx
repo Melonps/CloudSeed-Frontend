@@ -5,8 +5,9 @@ const InputCloudKeyword = ({ words, setWords }) => {
     const [inputWord, setInputWord] = useState("");
 
     const addWord = () => {
-        if (inputWord.trim() !== "") {
-            setWords((prevWords) => [...prevWords, inputWord.trim()]);
+        const trimmedWord = inputWord.trim();
+        if (trimmedWord !== "") {
+            setWords((prevWords) => [...prevWords, trimmedWord]);
             setInputWord("");
         }
     };
@@ -34,7 +35,6 @@ const InputCloudKeyword = ({ words, setWords }) => {
                 onChange={handleInputChange}
             />
             <Button
-                type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 4 }}
@@ -43,21 +43,25 @@ const InputCloudKeyword = ({ words, setWords }) => {
                 Add Word
             </Button>
             <Typography variant="h5">Cloud Keyword List</Typography>
-            <ul>
-                {words.map((word, index) => (
-                    <li key={index}>
-                        <Typography variant="body2" sx={{ mt: 2 }}>
-                            {word}
-                            <Button
-                                onClick={() => removeWord(index)}
-                                color="secondary"
-                            >
-                                Remove
-                            </Button>
-                        </Typography>
-                    </li>
-                ))}
-            </ul>
+            {words.length > 0 ? (
+                <ul>
+                    {words.map((word, index) => (
+                        <li key={index}>
+                            <Typography variant="body2" sx={{ mt: 2 }}>
+                                {word}
+                                <Button
+                                    onClick={() => removeWord(index)}
+                                    color="secondary"
+                                >
+                                    Remove
+                                </Button>
+                            </Typography>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <Typography variant="body2">No keywords added.</Typography>
+            )}
         </div>
     );
 };
