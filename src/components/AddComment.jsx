@@ -148,9 +148,11 @@ const AddComment = () => {
                 {fetchedData &&
                     fetchedData.map((comment, index) => (
                         <li key={index}>
-                            <Typography variant="body2" sx={{ mt: 2 }}>
-                                <p>キーワード: {comment.keyword.value}</p>
-                                <p>コメント： {comment.comment.value}</p>
+                            <Typography variant="body1" sx={{ mt: 2 }}>
+                                <Typography component="body1" sx={{ mt: 2 }}>
+                                    {comment.keyword.value}：
+                                    {comment.comment.value}
+                                </Typography>
                             </Typography>
                         </li>
                     ))}

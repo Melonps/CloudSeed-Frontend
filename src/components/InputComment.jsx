@@ -72,7 +72,7 @@ const AddComment = ({ words, setWords }) => {
                             variant="h5"
                             sx={{ mt: 1 }}
                         >
-                            {word.word} - {word.comment}
+                            {word.word} ： {word.comment}
                             <Button
                                 onClick={() => removeWord(index)}
                                 color="secondary"

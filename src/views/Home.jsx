@@ -10,14 +10,22 @@ function Home() {
     const [words, setWords] = useState([]);
 
     return (
-        <div className="App">
-            <section className="min-h-screen flex items-center justify-center  text-dark ">
+        <div className="home-container">
+            <section className="section-container min-h-screen flex items-center justify-center">
                 <div>
-                    <Typography component="h1" variant="h3" sx={{ m: 2 }}>
+                    <Typography
+                        component="h1"
+                        variant="h3"
+                        className="section-title"
+                    >
                         Home
                     </Typography>
                     <InputCloudKeyword words={words} setWords={setWords} />
                     <ShowImage words={words} />
+                </div>
+            </section>
+            <section className="section-container min-h-screen flex items-center justify-center">
+                <div>
                     <AddComment />
                     <SignOut />
                 </div>
