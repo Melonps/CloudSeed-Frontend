@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { TextField, Button, Typography } from "@mui/material";
 
-import axios from 'axios'
+import axios from "axios";
 
 const AddComment = () => {
     const [words, setWords] = useState([]); // wordsとsetWordsの宣言を追加
@@ -12,23 +12,27 @@ const AddComment = () => {
     useEffect(() => {
         const fetchComments = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:5000/kintone/comment')
-                console.log(response.data.response)
-                setFetchedData(response.data.response)
+                const response = await axios.get(
+                    "http://127.0.0.1:5000/kintone/comment"
+                );
+                console.log(response.data.response);
+                setFetchedData(response.data.response);
                 // setFetchedComments(response.data.records);
-                console.log(fetchedData[0]) // response.data.recordsに適切なデータ構造が存在すると仮定
+                console.log(fetchedData[0]); // response.data.recordsに適切なデータ構造が存在すると仮定
             } catch (error) {
                 console.error(error);
             }
         };
 
         fetchComments();
-    }, []); 
-    
+    }, []);
+
     useEffect(() => {
         if (fetchedData) {
-            fetchedData.forEach(record => {
-                console.log(`Keyword: ${record.keyword.value}, Comment: ${record.comment.value}`);
+            fetchedData.forEach((record) => {
+                console.log(
+                    `Keyword: ${record.keyword.value}, Comment: ${record.comment.value}`
+                );
             });
         }
     }, [fetchedData]);
@@ -59,27 +63,27 @@ const AddComment = () => {
 
     const RegistarAll = async () => {
         const headers = {
-            'Content-Type': 'application/json',
-        }
-        
+            "Content-Type": "application/json",
+        };
+
         const postData = {
-            "records": words.map(word => ({
-                "keyword": { value: word.word },
-                "comment": { value: word.comment }
-            }))
-        }
-        
-        
+            records: words.map((word) => ({
+                keyword: { value: word.word },
+                comment: { value: word.comment },
+            })),
+        };
+
         try {
-            const response = await axios.post('http://127.0.0.1:5000/kintone/comment', postData, {
-                headers: headers,
-            }).then(response => console.log(response.text))
-            window.location.reload()
+            const response = await axios
+                .post("http://127.0.0.1:5000/kintone/comment", postData, {
+                    headers: headers,
+                })
+                .then((response) => console.log(response.text));
+            window.location.reload();
         } catch (error) {
-            console.error(error)
+            console.error(error);
         }
-    
-    }
+    };
     return (
         <div>
             <Typography variant="h5">検索キーワードとコメントを追加</Typography>
@@ -114,7 +118,7 @@ const AddComment = () => {
             >
                 キーワードとコメントを追加する
             </Button>
-            <Typography variant="h5">Cloud Keyword List</Typography>
+
             <ul>
                 {words.map((word, index) => (
                     <li key={index}>
@@ -139,17 +143,17 @@ const AddComment = () => {
             >
                 追加したキーワード、コメントを記録する
             </Button>
-            <Typography variant="h5">今までのコメント</Typography>
+            <Typography variant="h5">Past Keywords List</Typography>
             <ul>
-                {fetchedData && fetchedData.map((comment, index) => (
-                    <li key={index}>
-                        <Typography variant="body2" sx={{ mt: 2 }}>
-                            <p>キーワード: {comment.keyword.value}</p> 
-                            <p>コメント： {comment.comment.value}</p>
-                        </Typography>
-                    </li>
-                ))}
-
+                {fetchedData &&
+                    fetchedData.map((comment, index) => (
+                        <li key={index}>
+                            <Typography variant="body2" sx={{ mt: 2 }}>
+                                <p>キーワード: {comment.keyword.value}</p>
+                                <p>コメント： {comment.comment.value}</p>
+                            </Typography>
+                        </li>
+                    ))}
             </ul>
         </div>
     );

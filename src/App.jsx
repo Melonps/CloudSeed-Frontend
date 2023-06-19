@@ -19,7 +19,15 @@ const App = () => {
             createTheme({
                 // パレットのモードをダークモードまたはライトモードに設定
                 palette: {
-                    mode: prefersDarkMode ? "dark" : "light",
+                    mode: prefersDarkMode ? "dark" : "dark",
+                    text: {
+                        primary: "#fcfffb",
+                        secondary: "#d6d9e4",
+                    },
+                    background: {
+                        default: "#242424",
+                        paper: "#2a2a2a",
+                    },
                     primary: {
                         main: "#df929b",
                         extraDark: "#c06d76",
@@ -35,7 +43,12 @@ const App = () => {
                     },
                 },
                 typography: {
-                    fontFamily: "Inter, 'Noto Sans JP'",
+                    fontFamily:
+                        "Inter, 'Noto Sans JP', sans-serif, 'Segoe UI Emoji'",
+                    fontWeightLight: 300,
+                    fontWeightRegular: 400,
+                    fontWeightMedium: 500,
+                    fontWeightBold: 700,
                 },
             }),
         [prefersDarkMode]
@@ -58,6 +71,7 @@ const App = () => {
                             <Route path={`/home`} element={<Home />} />
                         </Routes>
                     </BrowserRouter>
+                    <div className="progress-bar"></div>
                 </div>
             </ThemeProvider>
         </div>

@@ -11,10 +11,7 @@ function Home() {
 
     return (
         <div className="App">
-            <Typography component="h1" variant="h5">
-                Home
-            </Typography>
-            <section className="min-h-screen flex items-center justify-center py-20 text-dark dark:text-light">
+            <section className="min-h-screen flex items-center justify-center  text-dark ">
                 <div>
                     <Typography component="h1" variant="h3" sx={{ m: 2 }}>
                         Home

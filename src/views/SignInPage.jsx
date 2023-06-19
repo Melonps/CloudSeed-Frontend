@@ -14,7 +14,7 @@ const SignInPage = () => {
                 <div className="App-header flex items-center">
                     <MainLogoDark className="w-72 xl:w-full h-24 xl:h-40 mx-auto mb-8" />
                     <Typography component="h1" variant="h6">
-                        全ては、1つのタネから。
+                        全ては、1つの"タネ"から。
                     </Typography>
                 </div>
             </section>

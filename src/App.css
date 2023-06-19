@@ -1,11 +1,13 @@
 
 .App {
-  background-color: #242424;
-  color: #fcfffb;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -ms-overflow-style: none;
   transition: all 0.4s ease-in-out;
+  overflow: hidden;
+  cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxMCIgZmlsbD0iIzNlM2UzZCIvPjwvc3ZnPg=='),
+        auto;
+    
 }
 
 body {
@@ -26,6 +28,7 @@ a:hover{
   background:url("./assets/hero3.jpg") no-repeat center center ;
   background-size: cover;
   min-height: 100vh;
+  width: 100vw;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -49,8 +52,9 @@ a:hover{
 }
 
 .WorcCloudimage {
-border-radius: 50px;
-background: #63EA32;
-box-shadow:  20px 20px 60px #54c72b,
-             -20px -20px 60px #72ff3a;
+  border-radius: 50px;
+background: #df929b;
+box-shadow:  20px 20px 60px #be7c84,
+             -20px -20px 60px #ffa8b2;
 }
+
